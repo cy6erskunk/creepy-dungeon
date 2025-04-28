@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: StoryPageParams): Promise<Met
     return {
       title: page.data.title,
     }
-  } catch (_error) {
+  } catch {
     return {
       title: 'Story Node Not Found',
     }
@@ -44,7 +44,7 @@ export default async function StoryPage({ params }: StoryPageParams) {
     const page = await client.getByUID('story_node', params.uid)
     
     return <StoryNode page={page} />
-  } catch (error) {
+  } catch {
     notFound()
   }
 }
