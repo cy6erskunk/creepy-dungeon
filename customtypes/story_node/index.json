@@ -19,6 +19,14 @@
           "placeholder": ""
         }
       },
+      "banner": {
+        "type": "Image",
+        "config": {
+          "label": "banner",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "storyText": {
         "type": "StructuredText",
         "config": {
