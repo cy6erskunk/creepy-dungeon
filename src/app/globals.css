@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 248, 250, 252;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Optional: Add custom styles for your adventure game */
+.adventure-content h1 {
+  @apply text-3xl font-bold mb-4;
+}
+
+.adventure-content h2 {
+  @apply text-2xl font-semibold mb-3;
+}
+
+.adventure-content p {
+  @apply mb-4;
+}
+
+.adventure-content ul {
+  @apply list-disc pl-5 mb-4;
+}
+
+.adventure-content ol {
+  @apply list-decimal pl-5 mb-4;
+}
+
+.option-button {
+  @apply bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded text-center transition-colors duration-200;
+}
+
+.start-button {
+  @apply bg-green-600 hover:bg-green-700 text-white py-3 px-8 rounded-lg text-xl transition-colors duration-200;
+}
