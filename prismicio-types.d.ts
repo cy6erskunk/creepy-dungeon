@@ -232,6 +232,16 @@ export interface StoryNodeSliceDefaultPrimaryOptionsItem {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * label field in *StoryNode → Default → Primary → options*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: story_node.default.primary.options[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
 }
 
 /**
