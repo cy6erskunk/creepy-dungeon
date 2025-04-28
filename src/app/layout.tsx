@@ -27,6 +27,9 @@ export default function RootLayout({
             <Link href="/" className="text-xl font-semibold text-blue-600 hover:text-blue-800">
               Choose Your Adventure
             </Link>
+            <Link href="/about" className="text-sm text-gray-600 hover:text-gray-800 ml-4">
+              About
+            </Link>
           </header>
           {children}
         </div>
