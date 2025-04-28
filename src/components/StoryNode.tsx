@@ -12,7 +12,7 @@ interface StoryNodeBanner {
   url: string;
   alt?: string;
 }
-interface StoryNodeInnerProps {
+export interface StoryNodeInnerProps {
   title: string | null;
   banner: StoryNodeBanner;
   storyText: RichTextField;
