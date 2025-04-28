@@ -12,10 +12,15 @@ export type StoryNodeProps = SliceComponentProps<Content.StoryNodeSlice>;
  * Component for "StoryNode" Slices.
  */
 const StoryNode: FC<StoryNodeProps> = ({ slice }) => {
-  const options = slice.primary.options.map((item) => ({
-      label: item.label,
-      target: item.buttonLink,
+  const mappedOptions = slice.primary.options.map(opt => ({
+      label: opt.label ?? '',
+      target: opt.buttonLink ?? null
     }));
+
+  const options = mappedOptions.map(option => ({
+    label: option.label,
+    target: option.target.link_type === 'Document' && option.target.uid ? { uid: option.target.uid } : null
+  }));
 
   return (
     <section
@@ -27,7 +32,7 @@ const StoryNode: FC<StoryNodeProps> = ({ slice }) => {
         title={slice.primary.title as string}
         banner={slice.primary.banner as { url: string; alt?: string }}
         storyText={slice.primary.story as RichTextField}
-        options={options} 
+        options={options}
       />
   
     </section>

@@ -4,9 +4,9 @@ import { createClient } from "@/prismicio"
 import StoryNode from '@/components/StoryNode'
 
 interface StoryPageParams {
-  params: {
+  params: Promise<{
     uid: string;
-  }
+  }>;
 }
 
 // Generate metadata for the page
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: StoryPageParams): Promise<Met
   const client = createClient()
   
   try {
-    const page = await client.getByUID('story_node', params.uid)
+    const page = await client.getByUID('story_node', (await params).uid)
     
     return {
       title: page.data.title,
@@ -41,7 +41,7 @@ export default async function StoryPage({ params }: StoryPageParams) {
   const client = createClient()
   
   try {
-    const page = await client.getByUID('story_node', params.uid)
+    const page = await client.getByUID('story_node', (await params).uid)
     
     return <StoryNode page={page} />
   } catch {

@@ -50,7 +50,7 @@ export const richTextComponents: JSXMapSerializer = {
     return (
       <a 
         href={node.data.url} 
-        target={node.data.target || '_blank'} 
+        target="_blank" 
         rel="noopener noreferrer"
         className="text-blue-600 hover:underline"
       >

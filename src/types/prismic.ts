@@ -1,23 +1,14 @@
 import { Content, ImageField, RichTextField, GroupField, ContentRelationshipField, KeyTextField } from '@prismicio/client'
 
-type FilledContentRelationshipField = {
-  id: string;
-  type: string;
-  tags: string[];
-  lang: string;
-  uid: string;
-  link_type: 'Document';
-  isBroken: boolean;
-}
-
 type StoryNodeOption = {
-  [K in 'label' | 'target']: K extends 'label' ? KeyTextField : ContentRelationshipField<'story_node'> & FilledContentRelationshipField;
+  label: KeyTextField;
+  target: ContentRelationshipField<'story_node'>;
 }
 
 // Define TypeScript interfaces for your Prismic content
 export interface StoryNodeDocument extends Content.StoryNodeDocument {
   data: {
-    title: string;
+    title: KeyTextField;
     banner: ImageField;
     storyText: RichTextField;
     options: GroupField<StoryNodeOption>;
